@@ -1,0 +1,35 @@
+{
+    "name": "youhey/elo",
+    "description": "A PHP implementation of Elo rating system",
+    "type": "library",
+    "keywords": ["elo", "rating", "ranking"],
+    "homepage": "https://github.com/youhey/elo",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ikeda Youhei",
+            "email": "youhey.ikeda@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/youhey/elo/issues",
+        "source": "https://github.com/youhey/elo"
+    },
+    "require": {
+        "php": ">=7.4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Youhey\\Elo\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Youhey\\Elo\\Test\\": "tests"
+        }
+    }
+}
