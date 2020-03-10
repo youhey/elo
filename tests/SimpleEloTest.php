@@ -3,11 +3,11 @@
 namespace Youhey\Elo\Test;
 
 use PHPUnit\Framework\TestCase;
-use Youhey\Elo\Elo;
+use Youhey\Elo\SimpleElo;
 use Youhey\Elo\Match;
 use Youhey\Elo\Player;
 
-class EloTest extends TestCase
+class SimpleEloTest extends TestCase
 {
     public function testCalculateMatch(): void
     {
@@ -16,7 +16,7 @@ class EloTest extends TestCase
 
         $match = new Match($player1, $player2, 1.0, 0.0);
 
-        $ratingSystem = new Elo(32);
+        $ratingSystem = new SimpleElo();
         $ratingSystem->calculateMatch($match);
 
         $this->assertEquals(1524, round($player1->getRating()));

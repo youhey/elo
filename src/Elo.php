@@ -55,12 +55,17 @@ class Elo
      */
     private function calculatePlayer(Player $player1, Player $player2, float $score): CalculationResult
     {
-        $ratingA = $player1->getRating();
-        $ratingB = $player2->getRating();
+        $rating1 = $player1->getRating();
+        $rating2 = $player2->getRating();
 
-        $expected = (1.0 / (1.0 + (10.0 ** (($ratingB - $ratingA) / 400.0))));
-        $newRating = ($ratingA + ($this->k * ($score - $expected)));
+        $expected = $this->expectedScore($rating1, $rating2);
+        $newRating = ($rating1 + ($this->k * ($score - $expected)));
 
         return new CalculationResult($newRating);
+    }
+
+    private function expectedScore(float $ratingA, float $ratingB): float
+    {
+        return (1.0 / (1.0 + (10.0 ** (($ratingB - $ratingA) / 400.0))));
     }
 }
